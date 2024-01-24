@@ -84,7 +84,12 @@ function AddIncomeModal({ show, onClose }) {
       </form>
 
       <div className="flex flex-col gap-4 mt-6">
-        <h3 className="text-2xl font-bold">Income History</h3>
+        <div className="flex justify-between item-center">
+          <h3 className="text-2xl font-bold">Income History</h3>
+          <p className="flex items-center font-bold text-2xl gap-2">
+            Total: {currencyFormatter(income.reduce((total, i) => total + i.amount, 0))}
+          </p>
+        </div>
 
         {income.map((i) => {
           return (
